@@ -1,0 +1,96 @@
+body{
+    text-align: center;
+}
+h1{
+    color: #000;
+}
+h2{
+    color: rgb(255, 255, 255);
+    background-color: #000;
+}
+
+.conteiner{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: auto;
+    grid-template-rows: 110px auto max-content;
+    grid-template-areas: 
+    "gridheader"
+    "gridmain"
+    "gridfooter";
+}
+
+.gridheader{
+    background-color: #510fbc;
+    grid-area: gridheader;
+    display: flex;
+}
+
+
+
+.gridheader img{
+    justify-items: center;
+    margin-top: 20px;
+    background-color: #510fbc
+}
+
+.v-line{
+    border-left: thick solid #000;
+    height:100%;
+    left: 0%;
+    position: absolute;
+}
+a:hover{
+    background-color: rgb(168, 168, 246);
+}
+
+
+.gridmain{
+    background-image: url(https://www.tenis.net/wp-content/uploads/2013/07/juego-de-fondo.jpg);
+    background-size: 100%;
+    grid-area: gridmain;
+}
+.mainvideos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    
+}
+
+.gridfooter{
+    background-color: #510fbc;
+    grid-area: gridfooter;
+    display: flex;
+}
+.linkfooter a{
+    margin: 20px;
+    flex-direction: row;
+}
+
+
+
+
+/* Animacion tenis */
+
+header
+{
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+}
+.tennis-ball
+{
+    width: 70px;
+    
+    animation: tennis 3s linear infinite alternate;
+}
+@keyframes tennis
+{
+    0%
+    {
+        top:0vh;
+        left: 0px;
+        transform: rotate(360deg);
+    }    
+}
