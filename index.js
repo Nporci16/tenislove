@@ -1,4 +1,13 @@
-let entrada = prompt ("Ingrese el producto que esta buscando")
+
+
+
+
+
+
+
+
+
+/*let entrada = prompt ("Ingrese el producto que esta buscando")
 while (entrada != null){
     switch (entrada) {
         case "remera" || "Remera":
@@ -18,4 +27,4 @@ while (entrada != null){
             entrada = null;
             break;
     }
-}
+}*/

@@ -30,7 +30,7 @@ a:hover{
     display: grid;
     min-height: 100vh;
     grid-template-columns: 230px auto;
-    grid-template-rows: 110px auto max-content;
+    grid-template-rows: 110px auto 40px;
     grid-template-areas: 
     "gridheader gridheader"
     "gridaside gridmain"
@@ -54,6 +54,31 @@ a:hover{
     grid-area: gridaside;
     background-color: #000;
 }
+.gridmain{
+    grid-area: gridmain;
+    background-color: rgb(4, 4, 45);
+}
+
+.imgtenis {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;  
+    
+}
+.card-img-top {
+    max-width: 250px;
+    max-height: 250px;
+    
+}
+.gridfooter{
+    background-color: #510fbc;
+    grid-area: gridfooter;
+    display: flex;
+}
+.linkfooter a{
+    margin: 20px;
+    flex-direction: row;
+}
 
 
 .dropdown-menu{
@@ -67,20 +92,7 @@ a:hover{
     margin-bottom: 20px;;
 }
 
-.gridmain{
-    grid-area: gridmain;
-    background-color: rgb(4, 4, 45);
-}
 
-.gridfooter{
-    background-color: #510fbc;
-    grid-area: gridfooter;
-    display: flex;
-}
-.linkfooter a{
-    margin: 20px;
-    flex-direction: row;
-}
 
 
 /* Animacion tenis */
