@@ -1,94 +1,98 @@
-let nombre
-let pedirGasto
-let resultado =0;
-let porcentajeDescuento =5;
+// UTILIZANDO DOM
+
+// productos arrays
+
+const gorras = [
+    {id:1, nombre: "Gorra Negra Adidas Bball 3S", precio: 5269, marca: "Adidas", img: "../img/gorratenisadidas.webp"},
+    {id:2, nombre: "Gorra Nike AEROBILL L91 PERF", precio: 6271, marca: "Nike", img: "../img/gorraniketenis.webp"},
+    {id:3, nombre: "Lacoste Gorra Contrast Strap Cotton", precio: 6309, marca: "Lacoste", img: "../img/gorralacostetenis.jpg"}
+]
+// carrito
+
+const carrito =[]
 
 
-function inicio (){
-    nombre = prompt("Ingrese su nombre")
-    alert("Bienvenido "+ nombre +" a Tennis Love")
-}
+let productos = document.getElementById("productos")
+productos.innerHTML=`
+<div>
+    <h3>Gorras</h3>
+        <div class="imgtenis">
+            <div class="card" style="width: 18rem;">
+                <img src="${gorras[0].img}" class="card-img-top" alt="Gorra Adidas">
+                <div class="card-body">
+                    <h5 class="card-title">${gorras[0].nombre}</h5>
+                    <p class="card-text">${gorras[0].marca}
+                    <p class="card-text">${gorras[0].precio}</p>
+                    <button id="comprar" class="btn btn-primary">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="${gorras[1].img}" class="card-img-top" alt="Gorra Nike">
+                <div class="card-body">
+                    <h5 class="card-title">${gorras[1].nombre}</h5>
+                    <p class="card-text">${gorras[1].marca}
+                    <p class="card-text">${gorras[1].precio}</p>
+                    <button id="comprar" class="btn btn-primary">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="${gorras[2].img}" class="card-img-top" alt="Gorra Lacoste">
+                <div class="card-body">
+                    <h5 class="card-title">${gorras[2].nombre}</h5>
+                    <p class="card-text">${gorras[2].marca}
+                    <p class="card-text">${gorras[2].precio}</p>
+                    <button id="comprar" class="btn btn-primary">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+                
+</div>
 
-function gasto(){
-    pedirGasto = prompt("Ingrese el dinero que va a gastar");
-    while(pedirGasto<=0){
-        pedirGasto = prompt("Importe ingresado no es valido. Ingreselo nuevamente.")
-    }
-    pedirGasto = parseInt(pedirGasto)
-}
+`
+// NAV
 
-function descuento(){
-    if(pedirGasto >5000){
-        alert("Por tu compra mayor a $5000 tenes un descuento del "+ porcentajeDescuento+"%")
-        calcularDescuento(pedirGasto, porcentajeDescuento)
-        mostrarDescuento (resultado)
-    } else{
-        alert ("Para tener un descuento debes superar la compra de $5000")
-    }
-}
-
-function calcularDescuento (pedirGasto, multiplicador){
-    resultado = pedirGasto * multiplicador / 100
-    console.log(pedirGasto)
-    console.log(multiplicador/100)
-}
-function mostrarDescuento(mensaje){
-    alert("Su descuento puede llegar a ser de "+resultado)
-}
-
-
-inicio()
-gasto()
-descuento()
-
-
-const gorras = [];
-class Gorra {
-    constructor (marca, color, precio) {
-        this.marca = marca;
-        this.color = color;
-        this.precio = precio;
-    }
-    /*descuento(calcularDescuento){
-        this.precio = this.precio - calcularDescuento;
-    }*/
-}
-
-let cantidad = parseInt (prompt("¿Cuantas gorras quiere agregar?"))
-    function agregarGorras (arr, cantidad){
-        for (let i = 0; i < cantidad; i++) {
-            let marca = prompt ("Ingrese la marca de la gorra")
-            let color = prompt("Ingrese el color de la gorra")
-            let precio = parseInt(prompt("Ingrese el precio de la gorra"))
-            arr.push(new Gorra(marca, color, precio))
-        }
-    }
-
-function mostrarGorras (arr){
-    arr.forEach(producto => {
-        alert ("Marca: " + producto.marca + " Color: " + producto.color + " Precio: $" + producto.precio)
-    })
-}
-
-agregarGorras (gorras,cantidad)
-mostrarGorras (gorras)
-
-let operacion = prompt ("¿Que producto desea adquirir?")
-
-
-let gorrasAelegir = gorras.filter((producto)=>producto.marca == operacion);
-let mensaje = ''
-gorrasAelegir.forEach(producto=>{
-    mensaje += "Se agrego a tu carrito " + "Marca: " + producto.marca + " Color: " + producto.color + " Precio: " + producto.precio
-});
-alert(mensaje);
-
-
-
-
-
-
-
+let nav = document.getElementById("nav")
+nav.innerHTML=`
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="v-line"></div>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">TennisLove</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pages/ranking.html">Ranking</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Torneos
+                                </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="./pages/torneos.html">Noticias</a></li>
+                                        <li><a class="dropdown-item" href="./miami.html">Miami Open</a></li>
+                                        <li><a class="dropdown-item" href="./pages/torneos/montecarlo.html">Montecarlo</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="./pages/torneos/rolandgarros.html">Roland Garros</a></li>
+                                    </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Tienda</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Nosotros</a>
+                            </li>
+                        </ul>
+                        <i class="fa-solid fa-cart-circle-plus"></i>
+                        
+                    </div>
+                </div>
+            </nav>
+`
 
 
 
