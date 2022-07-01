@@ -49,6 +49,12 @@ productos.innerHTML=`
 </div>
 
 `
+let boton = document.getElementById("comprar")
+boton.onclick = () => { console.log("Click") }
+boton.onmousemove = () => { console.log ("Move")}
+
+
+
 // NAV
 
 let nav = document.getElementById("nav")
@@ -73,18 +79,18 @@ nav.innerHTML=`
                                 Torneos
                                 </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="./pages/torneos.html">Noticias</a></li>
+                                        <li><a class="dropdown-item" href="./torneos.html">Noticias</a></li>
                                         <li><a class="dropdown-item" href="./miami.html">Miami Open</a></li>
-                                        <li><a class="dropdown-item" href="./pages/torneos/montecarlo.html">Montecarlo</a></li>
+                                        <li><a class="dropdown-item" href="./montecarlo.html">Montecarlo</a></li>
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="./pages/torneos/rolandgarros.html">Roland Garros</a></li>
+                                        <li><a class="dropdown-item" href="./rolandgarros.html">Roland Garros</a></li>
                                     </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Tienda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Nosotros</a>
+                                <a class="nav-link" href="./nosotros.html">Nosotros</a>
                             </li>
                         </ul>
                         <i class="fa-solid fa-cart-circle-plus"></i>
