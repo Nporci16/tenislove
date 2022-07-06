@@ -3,57 +3,42 @@
 // productos arrays
 
 const gorras = [
-    {id:1, nombre: "Gorra Negra Adidas Bball 3S", precio: 5269, marca: "Adidas", img: "../img/gorratenisadidas.webp"},
-    {id:2, nombre: "Gorra Nike AEROBILL L91 PERF", precio: 6271, marca: "Nike", img: "../img/gorraniketenis.webp"},
-    {id:3, nombre: "Lacoste Gorra Contrast Strap Cotton", precio: 6309, marca: "Lacoste", img: "../img/gorralacostetenis.jpg"}
+    {id:0, nombre: "Gorra Negra Adidas Bball 3S", precio: 5269, marca: "Adidas", img: "../img/gorratenisadidas.webp"},
+    {id:1, nombre: "Gorra Nike AEROBILL L91 PERF", precio: 6271, marca: "Nike", img: "../img/gorraniketenis.webp"},
+    {id:2, nombre: "Lacoste Gorra Contrast Strap Cotton", precio: 6309, marca: "Lacoste", img: "../img/gorralacostetenis.jpg"}
 ]
+//LocalStore+JSON del Array
+
+localStorage.setItem("gorras", JSON.stringify(gorras))
+
 // carrito
 
 const carrito =[]
 
 
+// DOM
+
 let productos = document.getElementById("productos")
-productos.innerHTML=`
-<div>
-    <h3>Gorras</h3>
-        <div class="imgtenis">
-            <div class="card" style="width: 18rem;">
-                <img src="${gorras[0].img}" class="card-img-top" alt="Gorra Adidas">
-                <div class="card-body">
-                    <h5 class="card-title">${gorras[0].nombre}</h5>
-                    <p class="card-text">${gorras[0].marca}
-                    <p class="card-text">${gorras[0].precio}</p>
-                    <button id="comprar" class="btn btn-primary">Agregar al carrito</button>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="${gorras[1].img}" class="card-img-top" alt="Gorra Nike">
-                <div class="card-body">
-                    <h5 class="card-title">${gorras[1].nombre}</h5>
-                    <p class="card-text">${gorras[1].marca}
-                    <p class="card-text">${gorras[1].precio}</p>
-                    <button id="comprar" class="btn btn-primary">Agregar al carrito</button>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="${gorras[2].img}" class="card-img-top" alt="Gorra Lacoste">
-                <div class="card-body">
-                    <h5 class="card-title">${gorras[2].nombre}</h5>
-                    <p class="card-text">${gorras[2].marca}
-                    <p class="card-text">${gorras[2].precio}</p>
-                    <button id="comprar" class="btn btn-primary">Agregar al carrito</button>
-                </div>
+
+gorras.forEach(gorra => {
+    let producto = document.createElement("div")
+    producto.className="col-12 col-sm-3 pt-5"
+    producto.innerHTML=`
+    <div>
+        <div class="card" style="width: 18rem;">
+            <img src="${gorra.img}" class="card-img-top" alt="Gorra Adidas">
+            <div class="card-body">
+                <h5 class="card-title">${gorra.nombre}</h5>
+                <p class="card-text">Marca: <mark>${gorra.marca}
+                <p class="card-text">Precio: <strong>$${gorra.precio}</p>
+                <button id="comprar" onclick="Comprar(${gorra.id})" class="btn btn-primary">Agregar al carrito</button>
             </div>
         </div>
-                
-</div>
-
-`
-let boton = document.getElementById("comprar")
-boton.onclick = () => { console.log("Click") }
-boton.onmousemove = () => { console.log ("Move")}
-
-
+    </div>
+    
+    `
+    productos.append(producto)
+});
 
 // NAV
 
@@ -100,6 +85,12 @@ nav.innerHTML=`
             </nav>
 `
 
+// funcion comprar
 
+const Comprar = (x) =>{
+carrito.push(gorras[x])
+console.log(carrito)
+alert("se agrego al carrito de compras")
+}
 
 
