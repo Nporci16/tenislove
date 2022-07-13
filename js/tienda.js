@@ -15,10 +15,37 @@ localStorage.setItem("gorras", JSON.stringify(gorras))
 
 const carrito =[]
 
+// operador logico and
 
+if (carrito.length === 0){
+    console.log("Carrito esta vacio")
+}
+//con operador AND
+carrito.length === 0 && console.log("carrito esta vacio")
+
+//spread del array
+console.log(...gorras)
+
+// acceso condicional  a un objeto
+const usuario = {
+    nombre: "Juan Martinez",
+    edad: 28,
+    tarjetaDeCredito: {
+        visa:"aprobado"
+    }
+}
+console.log(usuario?.tarjetaDeCredito?.visa || "la propiedad existe")
+// aprobado
+console.log(usuario?.otrasTarjetas?.mastercard || "la propiedad no existe")
+
+//desestructuracion de arrays
+const [a, b]= gorras
+console.log(a) // Gorra Negra Adidas Bball 3S
 // DOM
 
+//let productos = document.getElementById("productos")
 let productos = document.getElementById("productos")
+let productoProd = document.getElementById("productoCarrito")
 
 gorras.forEach(gorra => {
     let producto = document.createElement("div")
@@ -39,6 +66,7 @@ gorras.forEach(gorra => {
     `
     productos.append(producto)
 });
+
 
 // NAV
 
@@ -85,12 +113,33 @@ nav.innerHTML=`
             </nav>
 `
 
-// funcion comprar
+//agregar carrito con fallas
 
 const Comprar = (x) =>{
 carrito.push(gorras[x])
 console.log(carrito)
-alert("se agrego al carrito de compras")
+carrito.forEach(gorra => {
+    let producto = document.createElement("div")
+    producto.className="col-12 col-sm-3 pt-5"
+    producto.innerHTML=`
+    <div>
+        <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">${gorra.nombre}</h5>
+            <p class="card-text">Marca: <mark>${gorra.marca}
+            <p class="card-text">Precio: <strong>$${gorra.precio}</p>
+            <button type=reset id="vaciar" class="btn btn-primary">Quitar del carrito</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    `
+    productoProd.append(producto)
+});
+//alert("se agrego al carrito de compras")
 }
+
 
 
