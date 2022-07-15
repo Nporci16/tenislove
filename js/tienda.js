@@ -118,6 +118,13 @@ nav.innerHTML=`
 const Comprar = (x) =>{
 carrito.push(gorras[x])
 console.log(carrito)
+Toastify({
+
+    text: "Se agrego al carrito de compras",
+    
+    duration: 2000
+    
+    }).showToast();
 carrito.forEach(gorra => {
     let producto = document.createElement("div")
     producto.className="col-12 col-sm-3 pt-5"
@@ -138,7 +145,6 @@ carrito.forEach(gorra => {
     `
     productoProd.append(producto)
 });
-//alert("se agrego al carrito de compras")
 }
 
 
