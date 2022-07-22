@@ -1,6 +1,10 @@
 body{
     text-align: center;
 }
+table thead{
+    background-color: #302b63;
+    color: white;
+}
 h1{
     color: #000;
 }
