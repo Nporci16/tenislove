@@ -58,7 +58,7 @@ gorras.forEach(gorra => {
                 <h5 class="card-title">${gorra.nombre}</h5>
                 <p class="card-text">Marca: <mark>${gorra.marca}
                 <p class="card-text">Precio: <strong>$${gorra.precio}</p>
-                <button id="comprar" onclick="Comprar(${gorra.id})" class="btn btn-primary">Agregar al carrito</button>
+                <button id="comprar" onclick="Comprar(${gorra.id})" class="btn btn-primary">Agregar al carrito <i class="fas fa-shopping-cart"></i></button>
             </div>
         </div>
     </div>
